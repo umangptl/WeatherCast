@@ -57,7 +57,7 @@ mvn spring-boot:run
 ```
 7. Access the application in your web browser at http://localhost:8080
 
-###Usage
+### Usage
 1. On the WeatherCast home page, enter the name of a city in the search bar and click the "Search" button. and use the switch button to change the units metric or imperial  
 2. View the current weather conditions for the searched city, including temperature, humidity, wind speed, and weather description. 3-hour forecast, 5-day forecast.
 3. click Save on the header see your Favorites cities and search a city to save.
