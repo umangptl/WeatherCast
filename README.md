@@ -66,3 +66,17 @@ mvn spring-boot:run
 Contributions to WeatherCast are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
 When contributing, please follow the existing code style and conventions. Provide clear and descriptive commit messages and ensure that your code changes are thoroughly tested.
+
+### Main Page
+<img width="600" alt="GUI picture" src="https://github.com/umangptl/WeatherCast/blob/main/Pictures/MainPage.png">
+
+### Search Page
+<img width="600" alt="GUI picture" src="https://github.com/umangptl/WeatherCast/blob/main/Pictures/Search.png">
+<img width="600" alt="GUI picture" src="https://github.com/umangptl/WeatherCast/blob/main/Pictures/search2.png">
+
+### Save Page
+<img width="600" alt="GUI picture" src="https://github.com/umangptl/WeatherCast/blob/main/Pictures/Save.png">
+<img width="600" alt="GUI picture" src="https://github.com/umangptl/WeatherCast/blob/main/Pictures/save2.png">
+
+
+
