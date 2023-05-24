@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <head>
+    <link rel="icon" href="/images/title.png" type="image/x-icon">
+    <title>WeatherCast</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/header.css">
+
+  </head>
+  <header>
+    <nav>
+      <img class="logo" src="/images/logo.png">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/list">Save</a></li>
+        <li><a href="/">Guide</a></li>
+      </ul>
+    </nav>
+  </header>
+<body>
+
+<div class="title-image">
+  <div class="title-text">
+    <h1>WeatherCast</h1>
+    <p><b>Weather forecasts, nowcasts and your saved list in personalized and refreshing way.</b></p>
+  </div>
+</div>
+
+<div class="search">
+  <div class="container">
+    <form id="weather-form" action="/weather" method="post">
+      <label for="city"></label>
+      <div class="search-wrapper">
+        <input type="text" id="city" name="search-city" required placeholder="Enter a city name...">
+        <input type="hidden" id="units" name="units" value="metric">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+    <div class="space"></div>
+
+    <label class="switch">
+      <input type="checkbox" id="toggle" name="toggle" value="metric">
+      <span class="slider"></span>
+      <span class="text text-left">Imperial:°C, m/s</span>
+      <span class="text text-right">Metric: °F, mph</span>
+    </label>
+    <script>
+      // Get the toggle switch and hidden input field elements
+      var toggleSwitch = document.getElementById('toggle');
+      var unitsInput = document.getElementById('units');
+
+      // Add an event listener to the toggle switch
+      toggleSwitch.addEventListener('change', function() {
+        if (toggleSwitch.checked) {
+          unitsInput.value = 'imperial';
+        } else {
+          unitsInput.value = 'metric';
+        }
+      });
+    </script>
+
+  </div>
+</div>
+
+<div class="weather-wrapper">
+  <div class="weather-container" th:style="'background-image: url(/images/weather/' + ${weatherCast.icon} + '.jpeg);'">
+    <div class="location">
+      <span class="city" th:text="${weatherCast.city}"></span><br>
+      <span class="time" th:text="${weatherCast.dt}"></span>
+    </div>
+    <div class="description"><span th:text="${weatherCast.description}"></span></div>
+    <div class="temperature">
+      <span class="temp"> <span th:text="${weatherCast.temp}"></span>°</span>
+      <span class="high">H:<span th:text="${weatherCast.temp_max}"></span></span>
+      <span class="low">L:<span th:text="${weatherCast.temp_min}"></span></span>
+    </div>
+  </div>
+
+  <div class="additional-image">
+    <a href="https://openweathermap.org/weathermap?basemap=map&cities=false&layer=windspeed&lat=30&lon=-20&zoom=3" target="_blank">
+    <img src="/images/map.png" alt="Additional Image">
+    </a>
+  </div>
+</div>
+
+<div class="widget-row">
+  <div class="widget">
+    <img src="/images/widget/sun.png" alt="Image 1">
+    <div class="widget-text">
+      <p style="position: absolute; top: -52px; left: -30px;"><span th:text="${weatherCast.sunrise}"></span></p>
+      <p style="position: absolute; top: 5px; left: -25px;"><span th:text="${weatherCast.sunset}"></span></p>
+    </div>
+  </div>
+
+  <div class="widget">
+    <img src="/images/widget/wind.png" alt="Image 2">
+    <div class="widget-text">
+      <h3 style="position: absolute; top: -40px; left: -10px;"><span th:text="${weatherCast.wind_degree}"></span>°</h3>
+      <h3 style="position: absolute; top: -20px; left: -20px;"><span th:text="${weatherCast.wind_speed}"></span>m/s</h3>
+    </div>
+  </div>
+  <div class="widget">
+    <img src="/images/widget/humidity.png" alt="Image 3">
+    <div class="widget-text">
+      <h2 style="position: absolute; top: -40px; left: -20px;"><span th:text="${weatherCast.humidity}"></span>%</h2>
+      <p style="position: absolute; top: -10px; left: -30px;">Humidity</p>
+    </div>
+  </div>
+  <div class="widget">
+    <img src="/images/widget/visibility.png" alt="Image 4">
+    <div class="widget-text">
+      <h3 style="position: absolute; top: -45px; left: -30px;"><span th:text="${weatherCast.visibility}"></span>m</h3>
+      <p style="position: absolute; top: -23px; left: -33px;">Visibility</p>
+    </div>
+  </div>
+</div>
+
+
+<div id="weather-widget">
+  <h2>3-Hour Forecast</h2>
+  <div class="weathercast-container">
+    <!-- Loop through forecast data -->
+    <div th:each="hourlyForecastDataList : ${forecast}" class="weathercast-item">
+      <p class="time" th:text="${hourlyForecastDataList.dt}"></p>
+      <img th:src="@{/images/logo/{icon}.png(icon=${hourlyForecastDataList.icon})}" />
+      <p class="time" th:text="${hourlyForecastDataList.temp} + '°'"></p>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="forecast-widget">
+  <h2>5 Day Forecast</h2>
+
+    <div th:each="dailyForecast : ${dailyForecasts}" class="forecast-item">
+      <div class="write" th:text="${dailyForecast.dt}"></div>
+      <img th:src="@{/images/logo/__${dailyForecast.icon}__.png}" th:alt="Image" />
+      <div class="write" th:text="${dailyForecast.temp_max} + '° / ' + ${dailyForecast.temp_min} + '°'"></div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,306 @@
+/* toggle switch units */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 240px;
+    height: 35px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #73B3BC;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 28px;
+    width: 110px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 24px;
+    opacity: 0.45;
+}
+
+#toggle:checked + .slider {
+    background-color: #1B1D29;
+}
+
+#toggle:checked + .slider:before {
+    transform: translateX(120px);
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    width: 120px;
+    line-height: 1;
+}
+
+.text-left {
+    left: 3px;
+}
+
+.text-right {
+    right: 3px;
+}
+
+/* header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1B1D29;
+    z-index: 9999;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #fff;
+}
+
+.logo {
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* title image styles */
+.title-image {
+    background-image: url('/images/header.jpeg');
+    background-size: cover;
+    background-position: center 350px;
+    height: 350px;
+    position: relative;
+
+}
+
+.title-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.title-text h1 {
+    color: #fff;
+    font-size: 50px;
+    font-family: Verdana, sans-serif;
+    margin: 0;
+}
+
+.title-text p {
+    color: #1B1D29;
+    font-size: 20px;
+    font-family: Verdana, sans-serif;
+    margin: 20px 180px;
+
+}
+
+/* search styles */
+body {
+    margin: 0;
+}
+
+.search {
+    background-color: #888888;
+    height: 80px;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.search-wrapper {
+    display: flex;
+}
+
+.search-wrapper input[type="text"] {
+    width: 300px;
+    max-width: 400px;
+    padding: 8px;
+    border-radius: 4px 0 0 4px;
+    border: none;
+}
+
+.search-wrapper button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    background-color: #1B1D29;
+    color: #73B3BC;
+    cursor: pointer;
+}
+
+.space {
+    width: 50px;
+}
+
+/* weather card */
+.weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 30px;
+    margin: 30px;
+}
+
+.weather-container {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.weather-container:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+ }
+
+.location {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.city {
+    font-size: 35px;
+    color: white;
+    font-family: Tebuchet MS, sans-serif;
+}
+
+.time {
+    font-size: 20px;
+    color: white;
+    font-family: Tebuchet MS, sans-serif;
+}
+
+.description {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 30px;
+    color: white;
+    font-family: Tebuchet MS, sans-serif;
+}
+
+.temperature {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: right;
+}
+
+.temp {
+    font-size: 100px;
+    color: white;
+    font-family: Tebuchet MS, sans-serif;
+}
+
+.high {
+    position: absolute;
+    right: 10px;
+    top: 180px;
+    font-size: 20px;
+    color: white;
+    font-family: Tebuchet MS, sans-serif;
+}
+
+.low {
+    position: absolute;
+    right: 10px;
+    top: 200px;
+    font-size: 20px;
+    color: white;
+    font-family: Tebuchet MS, sans-serif;
+}
+
+
+/* close button */
+
+.close-button {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    background-color: #FF3232;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.close-button::before,
+.close-button::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    background-color: white;
+}
+
+.close-button::before {
+    transform: rotate(45deg);
+}
+
+.close-button::after {
+    transform: rotate(-45deg);
+}
+
+.close-button:hover {
+    background-color: darkred;
+}

@@ -1,0 +1,388 @@
+/* toggle switch units */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 240px;
+    height: 35px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #73B3BC;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 28px;
+    width: 110px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 24px;
+    opacity: 0.45;
+}
+
+#toggle:checked + .slider {
+    background-color: #1B1D29;
+}
+
+#toggle:checked + .slider:before {
+    transform: translateX(120px);
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    width: 120px;
+    line-height: 1;
+}
+
+.text-left {
+    left: 3px;
+}
+
+.text-right {
+    right: 3px;
+}
+
+/* header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1B1D29;
+    z-index: 9999;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #fff;
+}
+
+.logo {
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* title image styles */
+.title-image {
+    background-image: url('/images/header.jpeg');
+    background-size: cover;
+    background-position: center 350px;
+    height: 350px;
+    position: relative;
+
+}
+
+.title-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.title-text h1 {
+    color: #fff;
+    font-size: 50px;
+    font-family: Verdana, sans-serif;
+    margin: 0;
+}
+
+.title-text p {
+    color: #1B1D29;
+    font-size: 20px;
+    font-family: Verdana, sans-serif;
+    margin: 20px 180px;
+
+}
+
+/* search styles */
+body {
+    margin: 0;
+}
+
+.search {
+    background-color: #888888;
+    height: 80px;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.search-wrapper {
+    display: flex;
+}
+
+.search-wrapper input[type="text"] {
+    width: 300px;
+    max-width: 400px;
+    padding: 8px;
+    border-radius: 4px 0 0 4px;
+    border: none;
+}
+
+.search-wrapper button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    background-color: #1B1D29;
+    color: #73B3BC;
+    cursor: pointer;
+}
+
+.space {
+    width: 50px;
+}
+
+/* weather card */
+.weather-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.weather-container {
+    width: 500px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin: 30px 200px ;
+    margin-right: 40px;
+}
+
+.location {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.city {
+    font-size: 35px;
+    color: white;
+    font-family: Tebuchet MS, sans-serif;
+}
+
+.time {
+    font-size: 20px;
+    color: white;
+    font-family: Tebuchet MS, sans-serif;
+}
+
+.description {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 30px;
+    color: white;
+    font-family: Tebuchet MS, sans-serif;
+}
+
+.temperature {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: right;
+}
+
+.temp {
+    font-size: 100px;
+    color: white;
+    font-family: Tebuchet MS, sans-serif;
+}
+
+.high {
+    position: absolute;
+    right: 10px;
+    top: 180px;
+    font-size: 20px;
+    color: white;
+    font-family: Tebuchet MS, sans-serif;
+}
+
+.low {
+    position: absolute;
+    right: 10px;
+    top: 200px;
+    font-size: 20px;
+    color: white;
+    font-family: Tebuchet MS, sans-serif;
+}
+
+/* Map img */
+
+.additional-image {
+    width: 500px;
+    height: 250px;
+    margin-left: 0px;
+}
+
+.additional-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* widget cards */
+
+.widget-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.widget {
+    position: relative;
+    width: 150px;
+    margin: 0 50px;
+}
+
+.widget img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.widget-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+}
+
+/* forecast 3 hours */
+
+#weather-widget {
+    width: 1000px;
+    height: 230px;
+    background-color: white;
+    text-align: center;
+    margin: 10px 215px;
+    font-family: Verdana, sans-serif;
+}
+
+.weathercast-container {
+    display: flex;
+    margin: 5px;
+    margin-left: 10px;
+
+}
+
+.weathercast-item {
+    padding: 5px;
+    border-radius: 10px;
+    margin-right: 5px;
+    background-color: #73b3bc;
+    text-align: center;
+    height: 180px;
+    width: 150px;
+}
+
+.weathercast-item .time{
+    color: white;
+    font-size: 18px
+}
+
+.weathercast-item img {
+    display: block;
+    width: 80%;
+    height: 40%;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+/* forecast 5 days */
+
+#forecast-widget {
+    width: 530px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    margin: 10px 435px;
+    font-family: Verdana, sans-serif;
+}
+
+.forecast-container {
+    display: flex;
+
+}
+
+.forecast-item {
+    border-radius: 5px;
+    background-color: #1b1d29;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 500px;
+    height: 50px;
+}
+
+.forecast-item .write {
+    color: white;
+}
+
+.forecast-item img {
+    display: block;
+    width: 8%;
+    height: 60%;
+    border-radius: 5px;
+    margin: 0 auto;
+}

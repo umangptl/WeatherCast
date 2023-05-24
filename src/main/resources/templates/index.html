@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <link rel="icon" href="/images/title.png" type="image/x-icon">
+        <title>WeatherCast</title>
+        <link rel="stylesheet" type="text/css" href="/CSS/header.css">
+
+    </head>
+    <header>
+        <nav>
+            <img class="logo" src="/images/logo.png">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/list">Save</a></li>
+                <li><a href="/">Guide</a></li>
+            </ul>
+        </nav>
+    </header>
+<body>
+
+<div class="title-image">
+    <div class="title-text">
+        <h1>WeatherCast</h1>
+        <p><b>Weather forecasts, nowcasts and your saved list in personalized and refreshing way.</b></p>
+    </div>
+</div>
+
+<div class="search">
+    <div class="container">
+        <form id="weather-form" action="/weather" method="post">
+            <label for="city"></label>
+            <div class="search-wrapper">
+                <input type="text" id="city" name="search-city" required placeholder="Enter a city name...">
+                <input type="hidden" id="units" name="units" value="metric">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+        <div class="space"></div>
+
+        <label class="switch">
+            <input type="checkbox" id="toggle" name="toggle" value="metric">
+            <span class="slider"></span>
+            <span class="text text-left">Imperial:°C, m/s</span>
+            <span class="text text-right">Metric: °F, mph</span>
+        </label>
+        <script>
+            // Get the toggle switch and hidden input field elements
+            var toggleSwitch = document.getElementById('toggle');
+            var unitsInput = document.getElementById('units');
+
+            // Add an event listener to the toggle switch
+            toggleSwitch.addEventListener('change', function() {
+                if (toggleSwitch.checked) {
+                    unitsInput.value = 'imperial';
+                } else {
+                    unitsInput.value = 'metric';
+                }
+            });
+        </script>
+    </div>
+</div>
+</body>
+</html>

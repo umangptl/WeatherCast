@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <link rel="icon" href="/images/title.png" type="image/x-icon">
+        <title>WeatherCast</title>
+        <link rel="stylesheet" type="text/css" href="/CSS/main.css">
+
+    </head>
+    <header>
+        <nav>
+            <img class="logo" src="/images/logo.png">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/list">Save</a></li>
+                <li><a href="/">Guide</a></li>
+            </ul>
+        </nav>
+    </header>
+<body>
+
+<div class="title-image">
+    <div class="title-text">
+        <h1>WeatherCast</h1>
+        <p><b>Weather forecasts, nowcasts and your saved list in personalized and refreshing way.</b></p>
+    </div>
+</div>
+
+<div class="search">
+    <div class="container">
+        <form id="save-form" action="/save" method="post">
+            <label for="city2"> </label>
+            <div class="search-wrapper">
+                <input type="text" id="city2" name="add-city" required placeholder="Enter a city name to save...">
+                <input type="hidden" id="units" name="units" value="metric">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+        <div class="space"></div>
+
+        <label class="switch">
+            <input type="checkbox" id="toggle" name="units" value="metric">
+            <span class="slider"></span>
+            <span class="text text-left">Imperial:°C, m/s</span>
+            <span class="text text-right">Metric: °F, mph</span>
+        </label>
+        <script>
+            // Get the toggle switch and hidden input field elements
+            var toggleSwitch = document.getElementById('toggle');
+            var unitsInput = document.getElementById('units');
+
+            // Add an event listener to the toggle switch
+            toggleSwitch.addEventListener('change', function() {
+                if (toggleSwitch.checked) {
+                    unitsInput.value = 'imperial';
+                } else {
+                    unitsInput.value = 'metric';
+                }
+            });
+        </script>
+    </div>
+</div>
+
+<div class="weather-grid">
+    <a th:each="weatherCast : ${weatherDataList}" th:href="@{/different-path}">
+        <div class="weather-container" th:style="'background-image: url(/images/weather/' + ${weatherCast.icon} + '.jpeg);'">
+            <form th:action="@{/delete}" method="POST">
+                <input type="hidden" name="cityToDelete" th:value="${weatherCast.city}" />
+                <button type="submit" class="close-button">X</button>
+            </form>
+            <div class="location">
+                <span class="city" th:text="${weatherCast.city}"></span><br>
+                <span class="time" th:text="${weatherCast.dt}"></span>
+            </div>
+            <div class="description"><span th:text="${weatherCast.description}"></span></div>
+            <div class="temperature">
+                <span class="temp"> <span th:text="${weatherCast.temp}"></span>°</span>
+                <span class="high">H:<span th:text="${weatherCast.temp_max}"></span></span>
+                <span class="low">L:<span th:text="${weatherCast.temp_min}"></span></span>
+            </div>
+        </div>
+    </a>
+</div>
+</body>
+</html>
