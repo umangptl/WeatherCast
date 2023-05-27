@@ -62,6 +62,41 @@ mvn spring-boot:run
 2. View the current weather conditions for the searched city, including temperature, humidity, wind speed, and weather description. 3-hour forecast, 5-day forecast.
 3. click Save on the header see your Favorites cities and search a city to save.
 
+### Endpoints
+1. Get current weather for a specific city:
+
+- Endpoint: /weather
+- Method: POST
+- Request Parameters:
+  - search-city: Specifies the name of the city for which you want to retrieve the current weather information.
+  - units (optional): Specifies the unit of measurement for the temperature. Defaults to "metric".
+- Description: Retrieves the current weather information for the specified city.
+
+2. Save weather data for a city:
+
+- Endpoint: /save
+- Method: POST
+- Request Parameters:
+  - add-city: Specifies the name of the city to save.
+  - units (optional): Specifies the unit of measurement for the temperature. Defaults to "metric".
+- Description: Saves the weather data for the specified city in the database.
+
+3. Get all saved weather data:
+
+- Endpoint: /list
+- Method: GET
+- Request Parameters:
+  - units (optional): Specifies the unit of measurement for the temperature. Defaults to "metric".
+- Description: Retrieves all saved weather data from the database.
+
+4.Delete weather data for a city:
+
+- Endpoint: /delete
+- Method: POST
+- Request Parameters:
+  - cityToDelete: Specifies the name of the city to delete from the saved weather data.
+- Description: Deletes the weather data for the specified city from the database
+
 ### Contributions
 Contributions to WeatherCast are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
