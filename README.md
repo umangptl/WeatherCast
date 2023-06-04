@@ -111,7 +111,7 @@ When contributing, please follow the existing code style and conventions. Provid
 
 ### Save Page
 <img width="600" alt="GUI picture" src="https://github.com/umangptl/WeatherCast/blob/main/Pictures/Save.png">
-<img width="600" alt="GUI picture" src="https://github.com/umangptl/WeatherCast/blob/main/Pictures/save2.png">
+<img width="600" alt="GUI picture" src="https://github.com/umangptl/WeatherCast/blob/main/Pictures/save2.1.png">
 
 
 
