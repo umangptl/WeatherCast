@@ -97,11 +97,6 @@ mvn spring-boot:run
   - cityToDelete: Specifies the name of the city to delete from the saved weather data.
 - Description: Deletes the weather data for the specified city from the database
 
-### Contributions
-Contributions to WeatherCast are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
-
-When contributing, please follow the existing code style and conventions. Provide clear and descriptive commit messages and ensure that your code changes are thoroughly tested.
-
 ### Main Page
 <img width="600" alt="GUI picture" src="https://github.com/umangptl/WeatherCast/blob/main/Pictures/MainPage.png">
 
